@@ -1,0 +1,18 @@
+wk1: comp thinking, statements, operators, variables, assignment
+wk2: data types, arithmetic, simple functions, basic I/O
+
+wk3: if, logical expressions
+wk4: while, for, break
+wk5: loop practice, std libs, streams
+
+wk6: input streams, predefined functions, input functions, user-defined functions (w/ params and return)
+wk7: reference params, more functions (workshop on the fraction arithmetic hw)
+wk8: multiple files, assert, enum, switch, file I/O
+
+wk9: arrays, arrays as parameters
+wk10: parallel arrays, structured data (public data members), arrays of objects
+wk11: nested classes, c-style strings, search and complexity lecture
+
+wk12: string class, classes, methods, constructors
+wk13: methods, point class exercise
+wk14: pointer basics, classes and pointers, dynamic allocation
