@@ -1,83 +1,63 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-using namespace std;
+#include "myfunctions.h"
 
-const int MAX_ENTRIES = 200;
 
-void print_employee( string name[], string position[], 
-					 int review_score[], int i )
-{
-	cout << "  " << name[i] << " (" 
-		 << position[i] << "): last review "
-		 << review_score[i] << endl;
+// define a function
+void print_out_array(string name_array[], string position_array[], int kpi_array[], int len_array){
+    cout << "the readin names are " << endl;
+    for (int j = 0; j < len_array; j++)
+    {
+        cout << name_array[j] << " " << position_array[j] << " " << kpi_array[j] << endl;
+    }
 }
 
-int lookup_employee( string name[], int empct, string lookup_name )
-{
-	// loop
-	for( int i=0;i<empct;i++ )
-	{
-		// check name against name array
-		if( lookup_name == name[i] )
-		{
-			return i;
-		}
-	}
-	return -1;
-}
 
 int main()
-{
-	ifstream shrug;
+{   // type variable_name;
+    // int int_variable;
+    ifstream fin;
+    string names[LENGTHS];
+    string positions[LENGTHS];
+    int kpi[LENGTHS];
 
-	string name[MAX_ENTRIES];
-	string position[MAX_ENTRIES];
-	int review_score[MAX_ENTRIES];
+    // open a file
+    fin.open("data.txt");
 
-	int employee_ct = 0;
+    // readin data from file. 
+    int i = 0; 
 
-	shrug.open( "2102-data.txt" );
+    while(!fin.eof())
+    {
+        if (i < LENGTHS){
+            fin >> names[i];
+            fin >> positions[i];
+            fin >> kpi[i];
+            i++;
+        }else{
+            cout << "not good. something wrong." << endl;
+            return -1; // you donot need to know this since we will talk about it later. 
+        }
 
-	while( !shrug.eof() )
-	{
-		if( employee_ct < MAX_ENTRIES )
-		{
-			shrug >> name[employee_ct];
-			shrug >> position[employee_ct];
-			shrug >> review_score[employee_ct];
-			employee_ct++;
-	
-			shrug.ignore( 1, '\n' );
+    }
+    // close a file
+    fin.close();
 
-		} else {
-			cout << "Bad things!" << endl;
-			return -1;
-		}
-	}
+    // call a function
+    print_out_array(names, positions, kpi, i);
 
-	shrug.close();
+    string input_name; 
+    cout << endl;
+    cout << "please input a name that you are looking for the information" << endl;
+    cin >> input_name; 
 
-	cout << "We have " << employee_ct << " employees" << endl;
+    for(int k = 0; k < i; k++){
+        if (names[k] == input_name){
+            cout << endl;
+            cout << "Yeah, we find the name" << endl;
+            cout << names[k] << " " << positions[k] << " " << kpi[k] << endl;
+            break;
+        }
 
-	for( int i=0;i<employee_ct;i++ )
-	{
-		print_employee( name, position, review_score, i );
-	}
+    }
 
-	string lookup_name;
-	cout << "Please enter a name to lookup: ";
-	cin >> lookup_name;
 
-	int n = lookup_employee( name, employee_ct, lookup_name );
-	if( n != -1 )
-	{
-		print_employee( name, position, review_score, n );
-	}
-	else
-	{
-		cout << "That employee doesn't exist." << endl;
-	}
-
-	return 0;
 }
