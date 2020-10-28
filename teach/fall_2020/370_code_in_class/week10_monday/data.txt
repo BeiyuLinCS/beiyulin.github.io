@@ -1,5 +1,0 @@
-peter manager 86 
-michael developer 68
-samir developer 75
-peter manager 86 
-lumbergh vp 82
