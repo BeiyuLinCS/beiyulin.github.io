@@ -26,5 +26,12 @@ public:
     // data members
     string name;
     string position;
-    int scores[100]; // note array inside class
+    int scores; // note array inside class
+    employee(string init_name, string init_position, int init_scores);
 };
+
+employee::employee(string init_name, string init_position, int init_scores){
+    name = init_name;
+    position = init_position;
+    scores = init_scores;
+}
