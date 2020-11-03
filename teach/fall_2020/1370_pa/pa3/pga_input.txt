@@ -1,5 +1,10 @@
-A B C A B D
-B+ B A A B D
-A A A A B F
-C C A C+ B F
-A B+ C+ C D F
+A B C A B 
+B+ B A A B 
+A A A A B 
+C C A C+ B 
+A B+ C+ C D 
+A B C A B 
+B+ B A A B 
+A A A A B 
+C C A C+ B 
+A A A A B 
