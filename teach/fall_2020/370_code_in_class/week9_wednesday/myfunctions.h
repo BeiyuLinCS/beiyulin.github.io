@@ -3,35 +3,54 @@
 #include <string>
 #include <fstream> 
 using namespace std;
-const int LENGTHS = 10;
 
-// declare a function;
-// void array_func(int array_variable[], int length_array);
-void print_out_array(string name_array[], string position_array[], int kpi_array[], int len_array);
-
-// define a function
-void print_out_array(string name_array[], string position_array[], int kpi_array[], int len_array)
-{
-    cout << "the readin names are " << endl;
-    for (int j = 0; j < len_array; j++)
-    {
-        cout << name_array[j] << " " << position_array[j] << " " << kpi_array[j] << endl;
-    }
-}
-
-// class definition (blueprint)
-class employee
-{
-public:
-    // data members
-    string name;
-    string position;
-    int scores; // note array inside class
-    employee(string init_name, string init_position, int init_scores);
+class Date{
+    public:
+        int year;
+        int month;
+        int day;
+        Date();
+        Date(int yr, int mth, int d);
+        void print();
+        void before(Date d1, Date d2);
 };
 
-employee::employee(string init_name, string init_position, int init_scores){
-    name = init_name;
-    position = init_position;
-    scores = init_scores;
+Date::Date()
+{
+    year = 2020;
+    month = 10;
+    day = 15;
+}
+
+Date::Date(int yr, int mth, int d)
+{
+    year = yr;
+    month = mth;
+    day = d;
+}
+
+void Date::print()
+{
+    cout << year << '/' << month << '/' << day << endl;
+}
+
+// we want to know if d2 is before d1 or not.
+void Date::before(Date d1, Date d2)
+{
+    //if (d1.year > d2.year) {cout << “true” << endl;}
+    //else if (d1.year == d2.year & d1.month > d2.month) {cout << “true” << endl;}
+    //else if (d1.year == d2.year & d1.month == d2.month &
+    //	d1.day > d2.day) {cout << “true” << endl;}
+    //else{cout << “false” << endl;}
+
+    if (d1.year > d2.year || (d1.year == d2.year && d1.month > d2.month) ||
+        (d1.year == d2.year && d1.month == d2.month &&
+         d1.day > d2.day))
+    {
+        cout << "TRUE" << endl;
+    }
+    else
+    {
+        cout << "FALSE" << endl;
+    }
 }
