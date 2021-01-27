@@ -1,0 +1,6 @@
+1. car or bicyle driving patterns (traffic management)
+2. Human mobility patterns based on GPS data
+3. Crime Analysis for Chicago 
+4. Weather prediction and its impact to human behavior
+5. Mining the spread patterns of COVID-19
+6. Robotic deep inverse reinforcement learning
