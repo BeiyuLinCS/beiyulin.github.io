@@ -1,1 +1,1 @@
-cout << 10.2 % 2 << endl;
+cin.clear();
