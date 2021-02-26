@@ -2,59 +2,95 @@
 using namespace std;
 #include <cmath>
 
-// user defined function
-// 1. declare a function (with all the types and finish with ;)
-// 2. define a function (with all the types, function body, andreturn a value)
-// 3. call a function (without all the types <=> function_name(the value of parameters))
 
-// main function 
-// there is only one main function in each project
-// type_of_a_function name_of_a_function(input parameters)<=> function heading
-// {statements
-// return the_type_as_the_function_type;
-// } <=> function body
-
-// declare a function;
+// declare a function; user-defined function 
 double cube_func(double x);
+double pow_func(double x, int p);
+void sum_func();
+double average_func();
 
-// user defined function
-// input parameters are passing around different functions.
-// stream input from the user is using "cin" to read in data from the keyboard.
-
-// define a function
+// define a function; user-defined function
 double cube_func(double x)
+{   
+    double result; // allocate a memory for the local variable result for function cube_func.
+    result = x * x * x;
+    return result;
+}
+
+// define a power function
+double pow_func(double x, int p)
 {
-    double results; // local variable
-    results = x * x * x;
-    return results; // we return the value of the local variable: results
+    double result;
+    result = 1;
+    for (int i = 0; i < p; i++)
+    {
+        result = x * result;
+    }
+    return result;
+}
+
+void sum_func()
+{
+    int num_input; // 4
+    double num;
+
+    double sum_res = 0;
+
+    cout << "please tell me how many numbers to sum up" << endl;
+    cin >> num_input;
+
+    // the loop will run 4 times; i would be 0, 1, 2, 3;
+    for (int i = 0; i < num_input; i++)
+    {
+        cout << "please input the number " << i+1 << endl;
+        cin >> num; // 3; 7; 5; 5; 
+        sum_res = sum_res + num; // sum_res = 0 + 3; sum_res = 3 + 7 = 10; sum_res = 10 + 5 = 15; sum_res = 15 + 5 = 20; 
+    }
+    cout <<"the sum is "<< sum_res << endl;
+}
+
+double average_func()
+{
+    int num_input; // 4
+    double num;
+
+    double sum_res = 0;
+
+    cout << "please tell me how many numbers to sum up" << endl;
+    cin >> num_input;
+
+    // the loop will run 4 times; i would be 0, 1, 2, 3;
+    for (int i = 0; i < num_input; i++)
+    {
+        cout << "please input a number to sum up " << endl;
+        cin >> num;              // 3; 7; 5; 5;
+        sum_res = sum_res + num; // sum_res = 0 + 3; sum_res = 3 + 7 = 10; sum_res = 10 + 5 = 15; sum_res = 15 + 5 = 20;
+    }
+    return sum_res /1.0/ num_input;
 }
 
 int main()
 {
-    // sqrt is a pre-defined function that is in the cmath library
-    double a ;
-    // only need the name of the function and assign the input of the function
-    a = sqrt(10); // pre-defined functions in library
-    cout << "the square root of 10 is " << a << endl;
-    cout << floor(48.98) << endl; // call the pre-defined floor function that is in the cmath library. 
+    // pre-defined functions; call a function
     cout << pow(2,3) << endl;
-    cout << pow(3,2) << endl;
-    // how to declare a variable
-    int num; //int 1num; any variable can not start with a number;
-    num = 0;
-    string str;
+    // call a user-defined function
+    cout << "the results of the user-defined power function is " << endl;
+    cout << pow_func(2, 3) << endl; // 8
+    cout << pow_func(3, 2) << endl; // 9
 
-    // call a function
-    cout << endl;
-    cout << endl;
-    cout << "the cube of 3 is this " << endl;
-    cout << cube_func(a) << endl; // x = a; 
+    
+    sum_func(); 
 
-    // there is pre-defined function to calculate the power
-    // use a for / while loop to calculate the power 2^3 = 2*2*2
-    // we define a function (user-defined function) to calculate the power
+    double ave_res;
+    ave_res = average_func();
+    cout << ave_res << endl;
 
-    return num;
+    cout << average_func() << endl;
+
+    // ask a user to input the numbers via the keyboard
+    // first ask a user to input how many numbers to sum up
+    // then ask a user to input these numbers 
+    return 0;
 }
 
 
