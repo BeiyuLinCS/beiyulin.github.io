@@ -1,0 +1,2 @@
+Data in the input3.txt file
+hello world

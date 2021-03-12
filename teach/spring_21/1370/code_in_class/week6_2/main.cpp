@@ -1,69 +1,59 @@
 #include <iostream>
-using namespace std;
 #include <cmath>
+#include <string>
+#include <fstream>
+using namespace std;
 
 
-// declare a function; user-defined function
-void get_numbers(int *num1, int *num2);
-void sum_diff_func(double num1, double num2, double *sum_res, double *diff_res);
-void large_small_func(double *largest, double *smallest);
+// int, double, char, string: pre-defined types for variables
+// enumeration type: user-defined types for variables
+enum phoneType { HOME, WORK, MOBILE, ADDITIONAL};
+enum classLevel {FRESHMAN, SOPHORMORE, JUNIOR, SENIOR};
+enum days {SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY};
 
+int example(int *b, phoneType *p);
 
-// define a function; user-defined function
-void get_numbers(int &num1, int &num2)
-{   
-    cout << endl << "please input two integers to pass back to the main function" << endl;
-    cin >> num1;
-    cin >> num2;
-}
+int example(int &b, phoneType &p){return 0;}
 
-void sum_diff_func(double num1, double num2, double &sum_res, double &diff_res)
-{
-    cout << "please input a number" << endl;
-    cin >> num2; 
-    sum_res = num1 + num2;
-    diff_res = abs((num1 - num2));
-}
-
-void large_small_func(double &largest, double &smallest)
-{
-    int num = 0;
-    largest = -10000000; // initialize the variable; 
-    smallest = 10000000;
-    cout << "input a number" << endl;
-    while(num != -1)
-    {
-        cin >> num; // 1
-
-        if (num > largest){largest = num;}
-        if (num < smallest){smallest = num;}
-
-    }
-
-
-}
 
 int main()
 {
-    // int a, b; // declare two variables; 
-    // get_numbers(a, b);
-    // cout << "the value of a is " << a << endl;
-    // cout << "the value of b is " << b << endl;
+    days d1, d2;
+    d1 = SUNDAY;
+    d2 = THURSDAY;
 
-    // pseduo code: 
-    // there are two variables: 
-    // - one number is initialized here
-    // - one number is passed as a variable; get the value in the function using cin 
-    // define two variables: sum_res, diff_res
-    // when call the function, we pass these two variables by references
-    // double num1, num2, sum_res, diff_res;
-    // num1 = 16;
-    // sum_diff_func(num1, num2, sum_res, diff_res);
-    // cout << "the sum of the two numbers is " <<  sum_res << endl;
-    // cout << "the diff of the two numbers is " << diff_res << endl;
-    double largest, smallest;
-    large_small_func(largest, smallest);
-    cout << "the largest, smallest values are " << largest << ", " << smallest << endl;
+    if (d1 < d2)
+
+
+    int a = 10;
+    phoneType pT;
+    pT = HOME;
+    example(a, pT); // a and pT are passing by references. 
+
+    int num;// num: -10, 0, 16, ...
+    num = -10;
+
+    double d;    // d: -9.01232, 3.1232, 0.000123, 
+
+    classLevel student1_level;
+    student1_level = FRESHMAN;
+
+    int num1, num2;
+    num1 = 10;
+    num2 = num1; // the value of num2: 10;
+
+    phoneType p1Type, p2Type; 
+    p1Type = ADDITIONAL;
+    p2Type = WORK; 
+
+    if (p1Type < MOBILE)
+    {
+        cout << "less than statement is true" << endl;
+    }else {
+        cout << "less than statement is false" << endl;
+    }
+
+
 
     return 0;
 }
