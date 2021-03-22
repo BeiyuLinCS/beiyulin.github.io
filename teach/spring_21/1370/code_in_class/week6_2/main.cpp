@@ -18,42 +18,43 @@ int example(int &b, phoneType &p){return 0;}
 
 int main()
 {
-    days d1, d2;
-    d1 = SUNDAY;
-    d2 = THURSDAY;
+    // days d1, d2;
+    // d1 = SUNDAY;
+    // d2 = THURSDAY;
 
-    if (d1 < d2)
-
-
-    int a = 10;
-    phoneType pT;
-    pT = HOME;
-    example(a, pT); // a and pT are passing by references. 
-
-    int num;// num: -10, 0, 16, ...
-    num = -10;
-
-    double d;    // d: -9.01232, 3.1232, 0.000123, 
-
-    classLevel student1_level;
-    student1_level = FRESHMAN;
-
-    int num1, num2;
-    num1 = 10;
-    num2 = num1; // the value of num2: 10;
-
-    phoneType p1Type, p2Type; 
-    p1Type = ADDITIONAL;
-    p2Type = WORK; 
-
-    if (p1Type < MOBILE)
-    {
-        cout << "less than statement is true" << endl;
-    }else {
-        cout << "less than statement is false" << endl;
-    }
+    // if (d1 < d2)
 
 
+    // int a = 10;
+    // phoneType pT;
+    // pT = HOME;
+    // example(a, pT); // a and pT are passing by references. 
+
+    // int num;// num: -10, 0, 16, ...
+    // num = -10;
+
+    // double d;    // d: -9.01232, 3.1232, 0.000123, 
+
+    // classLevel student1_level;
+    // student1_level = FRESHMAN;
+
+    // int num1, num2;
+    // num1 = 10;
+    // num2 = num1; // the value of num2: 10;
+
+    // phoneType p1Type, p2Type; 
+    // p1Type = ADDITIONAL;
+    // p2Type = WORK; 
+
+    // if (p1Type < MOBILE)
+    // {
+    //     cout << "less than statement is true" << endl;
+    // }else {
+    //     cout << "less than statement is false" << endl;
+    // }
+
+    cout.precision(3);
+    cout << 3.2342 << endl;
 
     return 0;
 }
