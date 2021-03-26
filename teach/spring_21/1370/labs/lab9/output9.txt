@@ -1,0 +1,5 @@
+
+The area of the rectangle with base   2.50 and height   3.70 is   9.30
+
+The area of the ellipse with radius   3.90 and radius   4.31 is  52.80
+
