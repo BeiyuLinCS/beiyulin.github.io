@@ -2,77 +2,68 @@
 #include <cmath>
 #include <string>
 using namespace std;
-const int L = 5; // constant
+const int L = 10; // constant
+const int LENGTH = 7;
+// declare a function 
+void print_func(int a, int *b, int array_ex[]);
+void assign_value_func(int a_array[]);
+
+void assign_value_func(int a_array[])
+{   cout << endl << "haha, we are assigning values to each element of an array" << endl;
+    for (int i = 0; i < L; i++)
+    {
+        a_array[i] = i + 5; // a_array[0] = 10; ... a_array[4] = 14;
+    }
+}
+
+// define a function. a is a formal parameter
+// for array, it pass by the reference (default)
+void print_func(int a, int &b, int array_ex[])
+{
+    cout << "the values before operations" << endl;
+    cout << a << endl; // 100
+    cout << b << endl; // 200
+    a = a + 100; // 200
+    b = b + 100; // 300
+    cout << endl << "the value of each element in an array is" << endl;
+    for (int j = 0; j < L; j++)
+    {
+        cout << array_ex[j] << endl;
+    }
+    array_ex[0] = 123456;
+}
 
 int main()
 {
-    // define an integer
-    int n;
-    n = 10;
+    string names[LENGTH];
+    int IDs[LENGTH];
+    int KPI[LENGTH];
+    names[0] = "vicky";
+    IDs[0] = 1111;
+    KPI[0] = 9;
 
-    // define 5 variables and their types are integer
-    int n1, n2, n3, n4, n5;
-    // assign values 
-    n1 = 10;
-    n2 = 15;
-    n3 = 20;
-    n4 = 26;
-    n5 = 53;
+    names[4] = "mike";
+    IDs[4] = 4132;
+    KPI[4] = 8;
 
-    cout << n1 << endl;
-    cout << n2 << endl;
-    cout << n3 << endl;
-    cout << n4 << endl;
-    cout << n5 << endl;
+    cout << endl << "the first name is " << names[0] << endl;
 
-    // define/ delcare array
 
-    int num[L]; // the 5 is the lenght of an array
-    // assign value to each element of an array
-    // the first element of the array, num, which the index is 0
-    // num[0] = 10;
-    // num[1] = 15;
-    // num[2] = 20;
-    // num[3] = 26;
-    // num[4] = 53;
+    int a_actual = 100;
+    int b_actual = 200;
+    int num[L]; // define an array
 
-    // in general, i means index
+    // give acutal parameter, array
+    assign_value_func(num);
 
-    for (int i = 0; i < 2; i++)
-    {   
-        cout << "please enter an integer for the " << i+1 << "th element of the array" << endl;
-        cin >> num[i]; // the last index = length - 1; 
-    }
-
-    cout << "the values of each element of the array are: " << endl;
-
-    for (int j = 0; j < L; j++)
-    {
-        cout << num[j] << endl;
-    }
-
-    // Exercises
-    // declare an array with 150 elements and the type is double
-    double d[150];
-    // set the 10th element to 5.6
-    // 10the element with index 9 (because index starts with 0)
-    d[9] = 5.6;
-    // print out the 10th element
-    cout << "the 10th element of this array is " << d[9] << endl;
-
-    // set the value for the 72th element
-    d[71] = 69.12;
-    // assign 72th element to the 12th element
-    d[11] = d[71];
-
-    int a , b;
-    a = 10;
-    b = a; 
-
-    cout << "please enter a number for the 113th element" << endl;
-    cin >> d[112];
-    
-
+    // a_actual is the actual parameter
+    // the value of the element with the index 4 = 14;
+    print_func(a_actual, b_actual, num);
+    // cout << endl << "the values after calling a function" << endl;
+    // cout << a_actual<< endl; // 100
+    // cout << b_actual << endl; // 300
+    cout << endl << "the value of index 0 in num is " << endl;
+    cout << num[0] << endl;
 
     return 0;
 }
