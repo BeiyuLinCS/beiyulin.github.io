@@ -2,68 +2,74 @@
 #include <cmath>
 #include <string>
 using namespace std;
-const int L = 10; // constant
-const int LENGTH = 7;
-// declare a function 
-void print_func(int a, int *b, int array_ex[]);
-void assign_value_func(int a_array[]);
 
-void assign_value_func(int a_array[])
-{   cout << endl << "haha, we are assigning values to each element of an array" << endl;
-    for (int i = 0; i < L; i++)
-    {
-        a_array[i] = i + 5; // a_array[0] = 10; ... a_array[4] = 14;
-    }
-}
-
-// define a function. a is a formal parameter
-// for array, it pass by the reference (default)
-void print_func(int a, int &b, int array_ex[])
+// we define a class called Employee
+// there are three parts in this class
+class Employee
 {
-    cout << "the values before operations" << endl;
-    cout << a << endl; // 100
-    cout << b << endl; // 200
-    a = a + 100; // 200
-    b = b + 100; // 300
-    cout << endl << "the value of each element in an array is" << endl;
-    for (int j = 0; j < L; j++)
-    {
-        cout << array_ex[j] << endl;
-    }
-    array_ex[0] = 123456;
-}
+    public: 
+        string name;
+        int id;
+        int kpi; // think it as declar / define a variable
+};
+
+class Point
+{
+    public:
+        double x; 
+        double y;
+};
+
 
 int main()
-{
-    string names[LENGTH];
-    int IDs[LENGTH];
-    int KPI[LENGTH];
-    names[0] = "vicky";
-    IDs[0] = 1111;
-    KPI[0] = 9;
+{   
+    Point p1; // p1 is an object of the class Point
+    // assgin (1,1) to the x, y value of p1
+    p1.x = 1.0;
+    p1.y = 1.0;
 
-    names[4] = "mike";
-    IDs[4] = 4132;
-    KPI[4] = 8;
+    Point p[100];
+    // assgin (1,2) to the second element of p
+    p[1].x = 1.0;
+    p[1].y = 2.0;
 
-    cout << endl << "the first name is " << names[0] << endl;
+    for(int i = 0; i < 10; i++){
+        if (i == 4){
+            cout << endl << "please input the x, y value for the 5th point" << endl;
+            cin >> p[i].x;
+            cin >> p[i].y;
+        }else{
+            p[i].x = i+ 1;
+            p[i].y = i + 1.5;
+        }   
+    }
 
+    // print out all the points 
+    for (int j = 0; j < 10; j++){
+        cout << p[j].x << ", " << p[j].y << endl;
+    }
 
-    int a_actual = 100;
-    int b_actual = 200;
-    int num[L]; // define an array
+    
+    
+    // pre-defined type variable_name
+    int num;
+    // declare a special variable with structure data
+    Employee e1; // e1 is an object;
+    e1.name = "Mary";
+    cin >> e1.id;
+    e1.kpi = 8;
 
-    // give acutal parameter, array
-    assign_value_func(num);
+    Employee e2, e3, e4, e5; 
 
-    // a_actual is the actual parameter
-    // the value of the element with the index 4 = 14;
-    print_func(a_actual, b_actual, num);
-    // cout << endl << "the values after calling a function" << endl;
-    // cout << a_actual<< endl; // 100
-    // cout << b_actual << endl; // 300
-    cout << endl << "the value of index 0 in num is " << endl;
-    cout << num[0] << endl;
+    Employee e[5]; // arrays of object
+    e[0].name = "Mary";
+    e[0].id = 1111;
+    e[0].kpi = 9;
+
+    string names[5]; // parallel arrays
+    int IDs[5];
+    int kpi[5];
+
 
     return 0;
 }
