@@ -1,2 +1,1 @@
-#define NDEBUG
-// #include <cassert>
+cin >> e1.id;
