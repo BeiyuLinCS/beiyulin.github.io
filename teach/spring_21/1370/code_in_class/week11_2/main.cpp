@@ -3,7 +3,23 @@
 #include <string>
 #include <fstream>
 using namespace std;
-#include "employee.h"
+// we define a class called Employee
+// there are three parts in this class
+class Employee
+{
+    public:
+        string name;
+        int id;
+        int kpi; // think it as declar / define a variable
+};
+
+class Point
+{
+    public:
+        double x;
+        double y;
+};
+
 
 int main()
 {
@@ -14,26 +30,23 @@ int main()
     num1[1] = 10;
     num1[2] = 20;
 
-    // sum_func(s, num1);
 
     Point p1; // p1 is an object of the class Point
     // assgin (1,1) to the x, y value of p1
-    // p1.x = 1.0;
-    // p1.y = 1.0;
+    p1.x = 1.0;
+    p1.y = 1.0;
 
     Point p[10];// length is 100 and the index is from 0 to 99. 
     // assgin (1,2) to the second element of p
-    // p[1].x = 1.0;
-    // p[1].y = 2.0;
+    p[1].x = 1.0;
+    p[1].y = 2.0;
 
-    int l = 10;
-    assign_value_func(l, p);
-    sum_func(s, num1, l, p);
+    
 
-    // print out all the points
-    // for (int j = 0; j < 10; j++){
-    //     cout << p[j].x << ", " << p[j].y << endl;
-    // }
+    print out all the points
+    for (int j = 0; j < 10; j++){
+        cout << p[j].x << ", " << p[j].y << endl;
+    }
 
     // pre-defined type variable_name
     int num;
@@ -52,16 +65,12 @@ int main()
 
     e[1].name = "Bill";
     e[1].id = 1123;
-    e[1].kpi = 10; g
+    e[1].kpi = 10; 
 
     e[2].name = "Tuesday";
     e[2].id = 1213;
     e[2].kpi = 9;
 
-    // write a function to search an employee by name
-    // if the employee exist in the data, print out all the information
-    search_name(3, e);
-    high_kpi(3, e);
 
     string names[5]; // parallel arrays
     int IDs[5];
