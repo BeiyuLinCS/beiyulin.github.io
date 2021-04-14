@@ -1,76 +1,60 @@
 #include <iostream>
-#include <cmath>
 #include <string>
-#include <fstream>
-#include <sstream>
+#include <iomanip>
 using namespace std;
-// we define a class called Employee
-// there are three parts in this class
-class Employee
-{
-public:
-    string name;
-    int id;
-    int kpi; // think it as declar / define a variable
-};
+// delcare a function
+int find_length(char c[]);
 
-// declare a funcation
-void assign_func(int *k, Employee ea[]);
 // define a function
-void assign_func(int &k, Employee ea[])
+int find_length(char c[])
 {
-    // read in data from file
-    // 1. declare a file variable by input file stream type
-    ifstream fin;
-    // 2. open the file
-    fin.open("data.txt");
-    // 3. do whatever we want
-    string line;
 
-    while (getline(fin, line))
-    {
-
-        // cout << line << endl;
-        stringstream ss(line); // conver the types
-
-        // float(3);
-        string temp; // temporary
-        // string id;
-        // string kpi;
-
-        // getline(cin, name);
-        // getline(fin, name);
-        getline(ss, temp, ' ');
-        ea[k].name = temp;
-
-        getline(ss, temp, ' ');
-        ea[k].id = stoi(temp); // stoi: string to integer
-
-        getline(ss, temp, ' ');
-        ea[k].kpi = stoi(temp); // stoi: string to integer
-
-        k++;
+    int l = 0;
+    while(c[l] != '\0'){
+        l++;
     }
-
-    // 4. close the file
-    fin.close();
+    return l;
 }
 
 int main()
-{
-    Employee e[100];
-    // call a function
-    int k; // local variable
-    k = 0;
-    // please review the materials about: pass by value, pass by reference, return types of a function
-    assign_func(k, e);
-    cout << endl
-         << "the new k value is " << k << endl;
-    cout << "the values of array based object is " << endl;
-    for (int i = 0; i < k; i++)
-    {
-        cout << e[i].name << ", " << e[i].id << ", " << e[i].kpi << ", " << endl;
-    }
+{   // string variable
+    string s; 
+    s = "today";
+    cout << endl << "the length of the string variable is " << endl;
+    cout << s.length()<< endl;
+    string s2;
+    s2 = s;
+    cout << endl << "the s2 is " << s2 << endl;
+    s2 = "this semester is almost over, haha, we will have fun in summer, it's super hot.";
+    s2.append(" we look forward to the cool weather in fall 2021, yeah.");
+    
+    // 1. find this string in the entire string
+    // 2. return the index of the first element;
+    cout << endl << "the index is " << endl;
+    cout << s2.find("semester"); 
+    cout << endl << "given the index from 5, the substr is " << endl;
+    // 5 is the starting index, 13 the total length of the substr starting with letter in the index 5. 
+    cout << s2.substr(5, 13) << endl;
+    cout << endl<< s2 << endl;
 
-    return 0;
+    // character array 
+    char c[100];
+    c[0] = 'T';
+    c[1] = 'o';
+    c[2] = 'd';
+    c[3] = 'a';
+    c[4] = 'y';
+    c[5] = '\0';
+    // call a function
+    cout << endl << "the lenght that are used in the character array is " << endl;
+    int length_c;
+    length_c = find_length(c);
+
+    char c1[100];
+    for(int i = 0; i < length_c; i++){
+        c1[i] = c[i];
+    }
+    c1[length_c] = '\0';
+    
+    
 }
