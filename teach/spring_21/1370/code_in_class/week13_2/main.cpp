@@ -4,96 +4,129 @@
 using namespace std;
 
 // declare / define a class;
-// user-defined class Point
-class Point
-{
+class Date{
     public:
-        int x; // x and y are variable <=> members
-        int y;
-        // declare a function <=> method
-        void print_func(int x_temp, int y_temp); // parameters
-        // constructor <=> initiliazation
-        Point(int x_init, int y_init);
+        // members
+        int year, month, day;
+        // declare constructor
+        Date(int y, int m, int d);
+        // declare a method
+        bool cmp_before(Date t1);
 };
 
-class BankAccount{
-    public:    
-        int account_number;
-        double balance;
-        // declare a constructor (function);
-        BankAccount(int account_init, double balance_init);
-        // declare a method (function);
-        bool print_func();
+// define a class Rectangle
+class Rectangle{
+    public:
+        double height, width;
+        // declare methods
+        void set_size();
+        double area();
 };
 
-// define a function that belongs to a class
-void Point::print_func(int x_temp, int y_temp)
-{
-    int temp; // local variable
-    cout << endl
-         << "please enter an integer" << endl;
-    cin >> temp;
-    cout << endl
-         << x + temp + x_temp << ", " << y + temp + y_temp << endl;
+// define methods
+void Rectangle::set_size(){
+    cout << endl << "please enter the values of height and width" << endl;
+    cin >> height >> width;
 }
 
-// class_name::constructor_name
-Point::Point(int x_init, int y_init)
-{
-    x = x_init;
-    y = y_init;
+double Rectangle::area(){
+    return height*width;
 }
 
-BankAccount::BankAccount(int account_init, double balance_init){
-    account_number = account_init;
-    balance = balance_init;
+// define a constructor
+Date::Date(int y, int m, int d){
+    year = y;
+    month = m;
+    day = d;
 }
 
-// tell the computer the scope that this function belongs to
-bool BankAccount::print_func(){
-    int temp;
-    cout << "please input an integer" << endl; 
-    cin >> temp;
-
-    if (temp > 0){
-        cout << "the account number is " << account_number << " with the balance " << balance << endl;
+// define a method
+bool Date::cmp_before(Date t1){
+    // whether d1 is before today1 or not
+    if (year < t1.year)
+    {
         return true;
     }
-    else{
+    else if (year == t1.year && month < t1.month)
+    {
+        return true;
+    }
+    else if (year == t1.year && month == t1.month && day < t1.day)
+    {
+        return true;
+    }
+    else
+    {
         return false;
     }
 }
 
+void print_func(int *a);
+void print_func(int &a){
+    a = a + 100;
+}
 
 
+// declare a function
+bool compare_before(Date d1, Date today1);
+
+// define a function
+bool compare_before(Date d1, Date today1)
+{
+    // whether d1 is before today1 or not
+    if (d1.year < today1.year){
+        return true;
+    }else if (d1.year == today1.year && d1.month < today1.month){
+        return true;
+    }
+    else if (d1.year == today1.year && d1.month == today1.month && d1.day < today1.day)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+    
+}
 
 int main()
 {   
-    // declare an object;
-    BankAccount account1(98392, 5.32);
-    BankAccount account4(983112, 12315.32);
-    account1.print_func();
+    // define two objects with the class type Date
+    Date appt(2010, 4, 10);
+    Date today(2010, 4, 14);
+    cout << endl << compare_before(appt, today) << endl;
+    cout << appt.cmp_before(today) << endl;
+        
+    if (!appt.cmp_before(today)){
+        cout << "we did not miss it" << endl;
+    }else {
+        cout << "haha, we missed it." << endl;
+        
+    }
 
-    // string class: pre-defined class in the library
-    // length, find, substr, append all are functinos in this string class
-    string s;
-    s = "today";
-    cout << s.length()<< endl; // length is a function in the string class
-
-    Point p(100, 200); // p: object
-    // p.x = 2; // x is member
-    // p.y = 1; 
-    int a, b;
-    a = 20;
-    b = 30;
-    p.print_func(a, b); // passing by value
-
-    // can we also do the function inside of the user-defined class, Point? 
-    // 1. declare a function inside of a user-define class
-    // 2. define a function 
-    // 3. how to use it based on an object (call a function)
+    Rectangle r1;
+    r1.set_size();
+    cout << "the area of this rectangle is " << r1.area() << endl;
+    r1.set_size();
+    cout << "the area of this rectangle is " << r1.area() << endl;
 
 
-    
-    
+    int a; // declare a varaible <=> allocate memory for this variable
+    a = 100;
+    // print_func(a);
+    cout << a << endl;
+
+    int b;
+    b = 200;
+    b = a; // the value of b is the value of a
+
+    // pass the address of a to another variable c
+    int *c; // declare a pointer variable named c
+    // a pointer: the value of this pointer is the address of another variable 
+    c = &a; // assign the addres of a, &a, to the value of c, c.
+    // the value that the pointer pointed to
+    cout << endl << "*c is " << *c << endl;
+    *c = 500;
+    cout << endl << "*c is " << *c << endl;
 }

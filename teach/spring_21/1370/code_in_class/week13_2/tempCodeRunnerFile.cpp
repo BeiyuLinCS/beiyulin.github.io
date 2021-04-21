@@ -1,1 +1,1 @@
-e a
+appt.cmp_before(today)
