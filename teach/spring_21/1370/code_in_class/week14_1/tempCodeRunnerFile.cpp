@@ -1,1 +1,1 @@
-appt.cmp_before(today)
+first_name
