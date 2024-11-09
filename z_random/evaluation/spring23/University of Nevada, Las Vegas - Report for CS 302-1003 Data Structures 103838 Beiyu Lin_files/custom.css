@@ -1,0 +1,26 @@
+﻿/***************************************************************
+    Before making changes to this file, please create a backup copy and store it in a safe place!
+    The custom.css file is to be used for creating style customizations of Blue.
+    Any changes made to this file will be preserved during upgrades.
+    
+    To customize the Blue Management Interface you can use #BlueSystemDefaultBody which is the id of the body tag. 
+  
+    End User pages will have a class name appended to the body tag that is based on the theme in use.
+
+    For themes by Explorance the class name will be "explorance-" + blue Theme
+    Example: 
+        .explorance-blue {}, 
+        .explorance-red_grey {}
+    
+    For Custom themes the Theme Name will be converted to lower case with dashes instead of spaces.
+    Example:   
+        Department of History 
+        .department-of-history {}
+
+    For Reports, in addition to the theme name, report pages will have a class name appended to the body tag
+    that is based on the base theme color
+    Example: 
+        .blue
+        .red_grey
+
+*/
